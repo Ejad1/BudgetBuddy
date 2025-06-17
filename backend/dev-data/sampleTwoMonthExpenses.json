@@ -1,0 +1,299 @@
+
+[
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 2250.75,
+    "category": "Salary",
+    "date": "2025-03-01T14:20:10.000Z",
+    "description": "Monthly Salary",
+    "isIncome": true
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 1200.00,
+    "category": "Rent",
+    "date": "2025-03-01T18:10:05.000Z",
+    "description": "Monthly rent payment",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 55.20,
+    "category": "Groceries",
+    "date": "2025-03-02T09:30:15.000Z",
+    "description": "Weekly groceries",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 25.50,
+    "category": "Transportation",
+    "date": "2025-03-03T08:00:00.000Z",
+    "description": "Bus pass",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 75.00,
+    "category": "Utilities",
+    "date": "2025-03-05T17:45:30.000Z",
+    "description": "Internet bill",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 40.00,
+    "category": "Dining Out",
+    "date": "2025-03-07T19:00:00.000Z",
+    "description": "Dinner with friends",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 15.00,
+    "category": "Entertainment",
+    "date": "2025-03-08T20:30:00.000Z",
+    "description": "Movie ticket",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 65.80,
+    "category": "Shopping",
+    "date": "2025-03-10T15:15:00.000Z",
+    "description": "New shirt",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 30.00,
+    "category": "Healthcare",
+    "date": "2025-03-12T11:00:00.000Z",
+    "description": "Pharmacy",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 80.25,
+    "category": "Groceries",
+    "date": "2025-03-14T10:00:00.000Z",
+    "description": "Supermarket run",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 1800.50,
+    "category": "Salary",
+    "date": "2025-03-15T14:20:10.000Z",
+    "description": "Freelance Payment",
+    "isIncome": true
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 45.00,
+    "category": "Transportation",
+    "date": "2025-03-16T07:30:00.000Z",
+    "description": "Gas fill-up",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 120.00,
+    "category": "Utilities",
+    "date": "2025-03-18T16:00:00.000Z",
+    "description": "Electricity bill",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 22.75,
+    "category": "Dining Out",
+    "date": "2025-03-20T12:30:00.000Z",
+    "description": "Lunch with colleagues",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 50.00,
+    "category": "Entertainment",
+    "date": "2025-03-22T19:00:00.000Z",
+    "description": "Concert ticket",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 35.99,
+    "category": "Shopping",
+    "date": "2025-03-24T13:00:00.000Z",
+    "description": "Books",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 70.00,
+    "category": "Groceries",
+    "date": "2025-03-26T17:00:00.000Z",
+    "description": "Weekly groceries",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 20.00,
+    "category": "Miscellaneous",
+    "date": "2025-03-28T10:00:00.000Z",
+    "description": "Gift",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 2300.00,
+    "category": "Salary",
+    "date": "2025-04-01T14:20:10.000Z",
+    "description": "Monthly Salary",
+    "isIncome": true
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 1200.00,
+    "category": "Rent",
+    "date": "2025-04-01T18:10:05.000Z",
+    "description": "Monthly rent payment",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 60.50,
+    "category": "Groceries",
+    "date": "2025-04-02T09:30:15.000Z",
+    "description": "Weekly groceries",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 25.50,
+    "category": "Transportation",
+    "date": "2025-04-03T08:00:00.000Z",
+    "description": "Bus pass",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 80.00,
+    "category": "Utilities",
+    "date": "2025-04-05T17:45:30.000Z",
+    "description": "Internet bill",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 30.00,
+    "category": "Dining Out",
+    "date": "2025-04-07T19:00:00.000Z",
+    "description": "Dinner with friends",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 12.00,
+    "category": "Entertainment",
+    "date": "2025-04-08T20:30:00.000Z",
+    "description": "Movie ticket",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 95.20,
+    "category": "Shopping",
+    "date": "2025-04-10T15:15:00.000Z",
+    "description": "Home goods",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 50.00,
+    "category": "Healthcare",
+    "date": "2025-04-12T11:00:00.000Z",
+    "description": "Doctor visit co-pay",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 75.10,
+    "category": "Groceries",
+    "date": "2025-04-14T10:00:00.000Z",
+    "description": "Supermarket run",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 1950.00,
+    "category": "Salary",
+    "date": "2025-04-15T14:20:10.000Z",
+    "description": "Freelance Payment",
+    "isIncome": true
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 40.00,
+    "category": "Transportation",
+    "date": "2025-04-16T07:30:00.000Z",
+    "description": "Gas fill-up",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 110.50,
+    "category": "Utilities",
+    "date": "2025-04-18T16:00:00.000Z",
+    "description": "Electricity bill",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 18.90,
+    "category": "Dining Out",
+    "date": "2025-04-20T12:30:00.000Z",
+    "description": "Coffee shop",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 60.00,
+    "category": "Entertainment",
+    "date": "2025-04-22T19:00:00.000Z",
+    "description": "Streaming subscription renewal",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 42.50,
+    "category": "Shopping",
+    "date": "2025-04-24T13:00:00.000Z",
+    "description": "Electronics accessory",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 68.70,
+    "category": "Groceries",
+    "date": "2025-04-26T17:00:00.000Z",
+    "description": "Weekly groceries",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 25.00,
+    "category": "Miscellaneous",
+    "date": "2025-04-28T10:00:00.000Z",
+    "description": "Donation",
+    "isIncome": false
+  },
+  {
+    "user": "sample_user_id_for_chart_data",
+    "amount": 33.45,
+    "category": "Dining Out",
+    "date": "2025-04-29T20:00:00.000Z",
+    "description": "Takeout dinner",
+    "isIncome": false
+  }
+]

@@ -1,0 +1,1477 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+:root {
+  /* Light Theme Variables */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f7f9;
+  --bg-sidebar: #1a2b48;
+  --bg-card: #ffffff;
+  --bg-input: #f8f9fa;
+  --bg-input-focus: #ffffff;
+  --bg-hover-light: rgba(0, 0, 0, 0.03);
+  --bg-gradient-start: #eef4ff;
+  --bg-gradient-end: #ffffff;
+
+  --text-primary: #212529;
+  --text-secondary: #52617a;
+  --text-tertiary: #6c757d;
+  --text-light: #ffffff;
+  --text-sidebar: #d1d5db;
+  --text-sidebar-link: #9ca3af;
+  --text-sidebar-link-active: #ffffff;
+  --text-brand: #0056b3;
+  --text-link: #007bff;
+  --text-link-hover: #0056b3;
+  --text-amount: #007bff;
+
+  --border-color: #e9ecef;
+  --border-color-light: #f1f3f5;
+  --border-input: #ced4da;
+  --border-input-focus: #80bdff;
+  --border-active: #007bff;
+
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color-medium: rgba(0, 0, 0, 0.08);
+  --shadow-focus: rgba(0, 123, 255, 0.25);
+  --shadow-button: rgba(0, 123, 255, 0.25);
+  --shadow-button-secondary: rgba(40, 167, 69, 0.25);
+  --shadow-button-hover: rgba(0, 123, 255, 0.35);
+  --shadow-button-secondary-hover: rgba(40, 167, 69, 0.35);
+  --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.07); /* New card shadow */
+  
+  --primary-color: #007bff;
+  --primary-color-dark: #0056b3;
+  --secondary-color: #28a745;
+  --secondary-color-dark: #1e7e34;
+  --danger-color: #dc3545;
+  --danger-color-dark: #c82333;
+  --warning-color: #ffc107;
+  --warning-color-dark: #e0a800;
+
+  --navbar-height: 70px; /* Define navbar height for reuse */
+  --sidebar-width-open: 250px;
+  --sidebar-width-collapsed: 70px;
+}
+
+.dark {
+  /* Dark Theme Variables */
+  --bg-primary: #121212; /* Off-black */
+  --bg-secondary: #1e1e1e; /* Darker gray */
+  --bg-sidebar: #1f2937; /* Slightly lighter dark */
+  --bg-card: #2a2a2a; /* Dark gray for cards */
+  --bg-input: #333333;
+  --bg-input-focus: #383838;
+  --bg-hover-light: rgba(255, 255, 255, 0.05);
+  --bg-gradient-start: #1f2937;
+  --bg-gradient-end: #121212;
+
+  --text-primary: #e0e0e0; /* Light gray primary text */
+  --text-secondary: #b0b0b0; /* Medium gray */
+  --text-tertiary: #909090;
+  --text-light: #ffffff;
+  --text-sidebar: #d1d5db;
+  --text-sidebar-link: #9ca3af;
+  --text-sidebar-link-active: #ffffff;
+  --text-brand: #58a6ff; /* Brighter blue */
+  --text-link: #58a6ff;
+  --text-link-hover: #80bfff;
+  --text-amount: #58a6ff;
+
+  --border-color: #444444;
+  --border-color-light: #383838;
+  --border-input: #555555;
+  --border-input-focus: #58a6ff;
+  --border-active: #58a6ff;
+
+  --shadow-color: rgba(255, 255, 255, 0.05);
+  --shadow-color-medium: rgba(255, 255, 255, 0.08);
+  --shadow-focus: rgba(88, 166, 255, 0.25);
+  --shadow-button: rgba(88, 166, 255, 0.25);
+  --shadow-button-secondary: rgba(60, 180, 90, 0.25);
+  --shadow-button-hover: rgba(88, 166, 255, 0.35);
+  --shadow-button-secondary-hover: rgba(60, 180, 90, 0.35);
+  --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.15); /* New card shadow for dark mode */
+
+  /* Dark Theme Variables */
+  --navbar-height: 70px; /* Define navbar height for reuse */
+  --sidebar-width-open: 250px;
+  --sidebar-width-collapsed: 70px;
+}
+
+/* Global Resets (Optional but Recommended) */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-secondary); /* Use variable */
+  color: var(--text-primary); /* Use variable */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar Styles - Enhanced */
+.navbar {
+  background-color: var(--bg-primary);
+  box-shadow: 0 2px 8px var(--shadow-color-medium);
+  padding: 0.8rem 0; /* Adjusted padding */
+  height: var(--navbar-height); /* Use variable */
+  position: sticky; /* Make navbar sticky */
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+  display: flex; /* For vertical centering of navbar-container if needed */
+  align-items: center; /* For vertical centering */
+}
+
+/* ... existing navbar styles ... */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure container takes full width of navbar */
+  max-width: 1200px; /* Limit width */
+  margin: 0 auto; /* Center container */
+  padding: 0 2rem; /* Padding inside container */
+}
+
+/* Style for the Brand/Logo */
+.navbar-brand {
+  font-size: 1.75rem; /* Larger brand text */
+  font-weight: 700; /* Bold */
+  color: var(--text-brand);
+  text-decoration: none; /* Remove underline from link */
+  transition: color 0.3s ease;
+}
+.navbar-brand:hover {
+  color: var(--primary-color-dark); /* Example direct color or new variable */
+}
+
+/* New Styles for Navbar Search */
+.navbar-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px; /* Adjust width as needed */
+}
+
+.navbar-search-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 1rem; /* Padding: top/bottom, right (for icon), left */
+  border-radius: 20px; /* Rounded corners */
+  border: 1px solid var(--border-input);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.navbar-search-input:focus {
+  border-color: var(--primary-color);
+  background-color: var(--bg-input-focus);
+  box-shadow: 0 0 0 3px var(--shadow-focus);
+}
+
+.navbar-search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 0.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  transition: color 0.3s ease;
+}
+
+.navbar-search-button:hover .search-icon {
+  color: var(--primary-color);
+}
+
+.search-icon {
+  width: 18px; /* Adjust icon size */
+  height: 18px;
+  stroke-width: 2.5; /* Make icon lines a bit thicker */
+}
+
+/* Container for Nav Links */
+.navbar-links {
+  display: flex;
+  gap: 1.5rem; /* Space between links */
+}
+
+.navbar-link {
+  font-size: 1rem; /* Standard font size */
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 0; /* Add some vertical padding for easier clicking */
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--border-active);
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: var(--text-link-hover);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* Home Page Styles - Final Polish */
+
+/* Add Keyframes for animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.home {
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem;
+  overflow: hidden;
+}
+
+.home-content {
+  max-width: 800px; /* Wider */
+  margin-bottom: 3.5rem;
+  /* Add animation */
+  animation: fadeInUp 0.8s 0.2s ease-out backwards;
+}
+
+.home-title {
+  font-size: 4.2rem; /* More impactful */
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.home-subtitle {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Add animation */
+  animation: fadeInUp 0.8s 0.4s ease-out backwards;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem; /* Increased gap */
+  margin-bottom: 4.5rem;
+  /* Add animation */
+  animation: fadeInUp 0.8s 0.6s ease-out backwards;
+}
+
+.home-button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 1rem 2.5rem; /* Generous padding */
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700; /* Bolder button text */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 6px 18px var(--shadow-button);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* More bouncy transition */
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home-button:hover {
+  background-color: var(--primary-color-dark);
+  box-shadow: 0 10px 25px var(--shadow-button-hover);
+  transform: translateY(-4px) scale(1.02); /* Lift and slightly scale */
+}
+
+.home-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 12px var(--shadow-button);
+}
+
+.home-button--secondary {
+  background-color: var(--secondary-color);
+  box-shadow: 0 6px 18px var(--shadow-button-secondary);
+}
+
+.home-button--secondary:hover {
+  background-color: var(--secondary-color-dark);
+  box-shadow: 0 10px 25px var(--shadow-button-secondary-hover);
+}
+
+.home-button--secondary:active {
+  box-shadow: 0 4px 12px var(--shadow-button-secondary);
+}
+
+.home-features-container {
+  width: 100%;
+  max-width: 1150px;
+  margin-top: 4rem; /* More space before features */
+  padding: 4rem 0;
+  /* Add fade-in animation */
+  animation: fadeIn 1s 0.8s ease-out backwards;
+}
+
+.home-features-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4rem;
+}
+
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Wider cards */
+  gap: 3rem;
+}
+
+.home-feature {
+  background-color: var(--bg-card);
+  padding: 3rem 2.5rem;
+  border-radius: 16px; /* Even more rounded */
+  box-shadow: 0 8px 30px var(--shadow-color-medium);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  /* Add scaleIn animation with delay based on position (needs JS ideally, but basic delay works) */
+  animation: scaleIn 0.6s ease-out backwards;
+}
+
+/* Basic staggered animation delay - for more complex staggering, JS is better */
+.home-feature:nth-child(1) { animation-delay: 1.0s; }
+.home-feature:nth-child(2) { animation-delay: 1.1s; }
+.home-feature:nth-child(3) { animation-delay: 1.2s; }
+/* Add more if needed */
+
+.home-feature:hover {
+  transform: translateY(-10px) scale(1.03); /* More lift and scale */
+  box-shadow: 0 15px 40px var(--shadow-color); /* Stronger shadow */
+}
+
+.home-feature-icon {
+  font-size: 4rem; /* Larger icon */
+  margin-bottom: 1.8rem;
+  line-height: 1;
+  color: var(--primary-color); 
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Specific icon colors (override gradient if needed or apply to SVG fill) */
+.home-feature .icon-plan { 
+  background: linear-gradient(45deg, #007bff, #4dabf7);
+}
+.home-feature .icon-save {
+  background: linear-gradient(45deg, #28a745, #74c69d);
+}
+.home-feature .icon-master {
+  background: linear-gradient(45deg, #ffc107, #ffe08a);
+}
+
+.home-feature-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.home-feature-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Login and Register Page Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-primary), var(--bg-gradient-start));
+  padding: 2rem;
+}
+.auth-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+.auth-form {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  width: 100%;
+  max-width: 400px;
+}
+.auth-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-input);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: border-color 0.3s;
+  background-color: var(--bg-input);
+}
+.auth-input:focus {
+  border-color: var(--border-input-focus);
+  outline: none;
+  background-color: var(--bg-input-focus);
+}
+.auth-button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+.auth-button:hover {
+  background-color: var(--primary-color-dark);
+}
+.auth-link {
+  color: var(--text-link);
+  text-align: center;
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+.auth-link:hover {
+  color: var(--text-link-hover);
+}
+
+/* Dashboard Layout & Components */
+.dashboard-layout {
+  display: flex; 
+  /* padding-top: var(--navbar-height); /* This might be redundant if main-content-wrapper handles navbar offset */
+  min-height: 100vh; 
+}
+
+/* Sidebar Styles - Modernized */
+.sidebar {
+  width: var(--sidebar-width-open);
+  height: calc(100vh - var(--navbar-height)); /* Full height minus navbar */
+  background-color: var(--bg-sidebar);
+  color: var(--text-sidebar);
+  padding: 1.5rem 0; /* Vertical padding, no horizontal here, links will have it */
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes logout to bottom if nav doesn't fill space */
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  z-index: 999; 
+}
+
+.sidebar.sidebar-collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem; /* Horizontal padding for the nav items block */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem; 
+  color: var(--text-sidebar-link);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.07); 
+  color: var(--text-sidebar-link-active);
+}
+
+.sidebar-link.active-link {
+  background-color: var(--primary-color);
+  color: var(--text-sidebar-link-active); 
+  font-weight: 500; 
+}
+
+.sidebar-icon {
+  margin-right: 0.85rem; 
+  font-size: 1.1rem; 
+  /* Calculate min-width to help center icon when sidebar is collapsed and text is hidden by React */
+  min-width: calc(var(--sidebar-width-collapsed) - 2 * 0.75rem); /* Assumes link padding of 0.75rem when collapsed */
+  height: 24px; 
+  line-height: 24px; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar.sidebar-collapsed .sidebar-link {
+  justify-content: center;
+  padding: 0.85rem 0.75rem; /* Adjusted padding for collapsed (centers icon) */
+}
+
+.sidebar.sidebar-collapsed .sidebar-icon {
+  margin-right: 0;
+}
+
+/* Text hiding is primarily handled by React conditional rendering {isOpen && ...} */
+
+.sidebar-logout {
+  padding: 0 1rem; /* Horizontal padding for the logout button container */
+  margin-top: 1rem; /* Space above logout section */
+}
+
+.sidebar-logout-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: transparent;
+  color: var(--text-sidebar-link);
+  border: none; 
+  border-radius: 8px;
+  text-align: left; 
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: var(--text-sidebar-link-active);
+}
+
+.sidebar.sidebar-collapsed .sidebar-logout-button {
+  justify-content: center;
+  padding: 0.85rem 0.75rem; 
+}
+
+/* This rule was pre-existing. It hides a SPAN (not .sidebar-icon) in collapsed logout button.
+   It's okay to keep if React structure for logout button uses such a span for text. */
+.sidebar.sidebar-collapsed .sidebar-logout-button span:not(.sidebar-icon) {
+  display: none;
+}
+
+/* Styles for main content wrapper to adjust to sidebar */
+.main-content-wrapper {
+  flex-grow: 1; 
+  transition: margin-left 0.3s ease;
+  padding-top: var(--navbar-height); /* Ensures content starts below sticky navbar */
+  /* background-color: var(--bg-secondary); /* Already on body, but can be explicit */
+  position: relative; /* Added for positioning the toggle button */
+}
+
+.main-content-wrapper.sidebar-open {
+  margin-left: var(--sidebar-width-open);
+}
+
+.main-content-wrapper.sidebar-closed {
+  margin-left: var(--sidebar-width-collapsed);
+}
+
+/* Sidebar Toggle Button Styling */
+.sidebar-toggle-btn {
+  position: absolute;
+  top: calc(var(--navbar-height) + 1rem); /* Position below navbar */
+  left: 1rem; 
+  z-index: 1001; /* Above sidebar but below modal/dropdowns if any */
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%; /* Circular button */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle-btn:hover {
+  background-color: var(--bg-hover-light);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: scale(1.05);
+}
+
+/* Adjust toggle button position when sidebar is closed */
+/* .main-content-wrapper.sidebar-closed .sidebar-toggle-btn { */
+  /* Optional: if you want to move it slightly when sidebar is closed */
+  /* left: calc(var(--sidebar-width-collapsed) + 1rem); */ 
+/* } */
+
+
+/* Main Dashboard Content Styling */
+.dashboard-content {
+  flex-grow: 1;
+  /* padding: 2.5rem; */ /* Original padding */
+  padding: 2.5rem 2.5rem 2.5rem 5rem; /* Top, Right, Bottom, Increased Left padding */
+  /* margin-left will be handled by .main-content-wrapper based on sidebar state */
+  /* max-width: 1200px; /* Optional: constrain width for very wide screens */
+  /* margin-left: auto; */ /* If max-width is used, center it */
+  /* margin-right: auto; */ /* If max-width is used, center it */
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-title {
+  font-size: 2.25rem; /* Larger title */
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0; /* Ensure no extra top margin */
+}
+
+.add-expense-btn {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 0.8rem 1.6rem; /* Adjusted padding */
+  border-radius: 10px; /* Softer corners */
+  font-size: 0.95rem; /* Adjusted font size */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px var(--shadow-button);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex; /* For icon alignment */
+  align-items: center;
+}
+
+.add-expense-btn:hover {
+  background-color: var(--primary-color-dark);
+  box-shadow: 0 6px 16px var(--shadow-button-hover);
+  transform: translateY(-2px);
+}
+
+.add-expense-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--shadow-button);
+}
+
+.dashboard-welcome {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Card Styling for Dashboard */
+.dashboard-card {
+  background-color: var(--bg-card);
+  border-radius: 16px; /* Softer corners */
+  box-shadow: var(--shadow-card); /* Use new shadow variable */
+  padding: 2.5rem; /* Increased padding */
+  margin-bottom: 2.5rem; /* Increased margin */
+  border: 1px solid var(--border-color-light);
+}
+
+.dashboard-card h2 {
+  font-size: 1.6rem; /* Slightly larger */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0; /* Remove default h2 margin */
+  margin-bottom: 1.75rem; /* Increased space below title */
+  padding-bottom: 1rem; /* Increased padding below title */
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+/* Specific card types if needed, e.g., for layout adjustments */
+/* .form-card { */
+  /* any specific styles for form card */
+/* } */
+
+/* .list-card { */
+  /* any specific styles for list card */
+/* } */
+
+/* .list-card-alongside-form { */
+  /* If you want to style the list differently when the form is also visible */
+  /* For example, if they are side-by-side in a grid later */
+/* } */
+
+
+/* Expense Form Styling */
+/* .expense-form-card { */ /* This class is on the form itself in ExpenseForm.jsx */
+  /* No need for card styles if it's already inside a .dashboard-card */
+  /* If it's standalone, then add card styles here */
+/* } */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Stack label and input by default */
+  gap: 0.75rem; /* Increased gap between label and input */
+  margin-bottom: 1.75rem; /* Increased space between form fields */
+}
+
+.form-grid label {
+  font-weight: 600; /* Slightly bolder */
+  color: var(--text-secondary);
+  font-size: 0.95rem; /* Slightly larger */
+  margin-bottom: 0.35rem; /* Small space if stacked */
+  display: block; /* Ensure it takes its own line if stacked */
+}
+
+/* Inputs, Textareas */
+.form-grid input[type="text"],
+.form-grid input[type="number"],
+.form-grid input[type="date"],
+.form-grid select, /* Added select for consistency */
+.form-grid textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem; /* Increased padding */
+  border: 1px solid var(--border-input);
+  border-radius: 10px; /* Softer corners */
+  font-size: 1rem;
+  color: var(--text-primary);
+  background-color: var(--bg-input);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Added background-color transition */
+  box-sizing: border-box; /* Important for width 100% */
+}
+
+.form-grid input[type="text"]:focus,
+.form-grid input[type="number"]:focus,
+.form-grid input[type="date"]:focus,
+.form-grid select:focus, /* Added select for consistency */
+.form-grid textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--shadow-focus);
+  background-color: var(--bg-input-focus); /* Ensure this provides good contrast */
+}
+
+.form-grid textarea {
+  resize: vertical; /* Allow vertical resize, not horizontal */
+  min-height: 80px;
+}
+
+/* Custom File Input */
+.file-input-button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-input);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: inline-block;
+}
+
+.file-input-button:hover {
+  background-color: var(--bg-hover-light);
+  border-color: var(--text-secondary);
+}
+
+/* Form Buttons */
+.expense-form-button,
+.cancel-button {
+  padding: 0.85rem 1.75rem; /* Adjusted padding */
+  border-radius: 10px; /* Softer corners */
+  font-size: 0.95rem; /* Adjusted font size */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem; /* Add some top margin for button group */
+}
+
+.expense-form-button {
+  background-color: var(--secondary-color); /* Green for add/update */
+  color: var(--text-light);
+  box-shadow: 0 4px 12px var(--shadow-button-secondary);
+}
+
+.expense-form-button:hover {
+  background-color: var(--secondary-color-dark);
+  box-shadow: 0 6px 16px var(--shadow-button-secondary-hover);
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background-color: var(--bg-card); /* Lighter background */
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.cancel-button:hover {
+  background-color: var(--bg-hover-light);
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* Messages */
+.error-message {
+  background-color: var(--danger-color);
+  color: var(--text-light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center; /* Center align text */
+}
+
+.success-message {
+  background-color: var(--secondary-color); /* Green for success */
+  color: var(--text-light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center; /* Center align text */
+}
+
+.info-message {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color-light);
+}
+
+
+/* General Page Title (if used outside dashboard header) */
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Styling for ExpenseList items (assuming a structure) */
+.expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem; /* Adjusted padding, more horizontal */
+  border-bottom: 1px solid var(--border-color-light);
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Added transform */
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-item:hover {
+  background-color: var(--bg-hover-light);
+  transform: translateX(5px); /* Subtle shift on hover */
+}
+
+.expense-details h3 { /* Category or Note */
+  font-size: 1.15rem; /* Slightly larger */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.3rem 0; /* Adjusted margin */
+}
+
+.expense-details p { /* Date or other info */
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.expense-amount {
+  font-size: 1.25rem; /* Slightly larger */
+  font-weight: 700; /* Bolder */
+  color: var(--text-amount); /* Use specific amount color */
+  min-width: 110px; /* Ensure alignment, slightly increased */
+  text-align: right;
+  padding-left: 1rem; /* Add some space from details */
+}
+
+.expense-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem; /* Slightly larger click area */
+  margin-left: 0.6rem; /* Slightly more space */
+  color: var(--text-tertiary);
+  transition: color 0.2s ease, transform 0.2s ease; /* Added transform */
+}
+
+.expense-actions button:hover {
+  color: var(--primary-color);
+  transform: scale(1.1); /* Icon slightly larger on hover */
+}
+
+.expense-actions .delete-btn:hover {
+  color: var(--danger-color);
+  transform: scale(1.1); /* Icon slightly larger on hover */
+}
+
+/* Profile Page Specific Styles */
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px; /* Limit width for better readability on large screens */
+  margin: 2rem auto; /* Center the content */
+  padding: 2rem;
+  background-color: var(--background-color); /* Ensure background consistency */
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--box-shadow-light);
+}
+
+.profile-section {
+  background-color: var(--white-color);
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-subtle);
+}
+
+.profile-section .section-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-section p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-color-secondary);
+}
+
+.profile-section p strong {
+  color: var(--text-color-primary);
+}
+
+.email-display-edit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.email-display-edit p {
+  margin-bottom: 0; /* Reset margin for p inside this flex container */
+}
+
+.profile-section .auth-input[type="email"],
+.profile-section .auth-input[type="password"],
+.profile-section .auth-input[type="file"] {
+  margin-bottom: 1rem; /* Add consistent spacing below inputs */
+}
+
+.profile-section .auth-button,
+.profile-section .cancel-button,
+.profile-section .edit-btn {
+  padding: 0.6rem 1.2rem; /* Slightly adjust padding for profile buttons */
+  font-size: 0.95rem;
+}
+
+.profile-section .edit-btn {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+.profile-section .edit-btn:hover {
+  background-color: var(--secondary-dark-color);
+}
+
+.profile-section .cancel-button {
+  background-color: var(--gray-light-color);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-color);
+}
+.profile-section .cancel-button:hover {
+  background-color: var(--border-color);
+}
+
+
+.profile-picture-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Circular preview */
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--border-color);
+  box-shadow: var(--box-shadow-subtle);
+}
+
+.profile-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-section label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color-primary);
+}
+
+.profile-section select.auth-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    background-color: var(--white-color);
+    color: var(--text-color-primary);
+    transition: border-color 0.2s ease-in-out;
+    margin-bottom: 1rem; /* Consistent spacing */
+}
+
+.profile-section select.auth-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-light-color);
+}
+
+/* Ensure messages have consistent spacing */
+.profile-section .success-message,
+.profile-section .error-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-small);
+}
+
+/* Adjustments for buttons in forms to have some space */
+.profile-section form .auth-button {
+    margin-top: 0.5rem; /* Add some space above buttons in forms */
+}
+
+/* Reports Page Specific Styles */
+.reports-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem; /* Add some padding around the reports page */
+}
+
+.report-section {
+  background-color: var(--white-color);
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-subtle);
+  margin-bottom: 2rem; /* Space between sections */
+}
+
+.report-section .section-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.report-section .subsection-title {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.report-section p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-color-secondary);
+}
+
+.report-section ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 1rem;
+}
+
+.report-section li {
+  margin-bottom: 0.5rem;
+  color: var(--text-color-secondary);
+}
+
+.report-section .chart-container {
+  height: 400px; /* Default height for charts */
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--background-color); /* Light background for chart area */
+}
+
+.report-section .loading-message,
+.report-section .error-message-reports {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: var(--text-color-secondary);
+  border-radius: var(--border-radius-medium);
+}
+
+.report-section .error-message-reports {
+  background-color: var(--danger-light-color);
+  color: var(--danger-dark-color);
+  border: 1px solid var(--danger-color);
+}
+
+.report-section .optimization-details,
+.report-section .nudges-list,
+.report-section .benchmarking-details {
+  margin-top: 1rem;
+}
+
+.report-section .optimization-item,
+.report-section .nudge-item,
+.report-section .benchmark-item {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  margin-bottom: 0.75rem;
+  background-color: var(--background-color);
+}
+
+.report-section .optimization-item strong,
+.report-section .nudge-item strong,
+.report-section .benchmark-item strong {
+  color: var(--text-color-primary);
+}
+
+/* Ensure the main title of the page has good spacing */
+.reports-page-container .dashboard-title {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem; /* Align with content padding if page has overall padding */
+}
+
+/* Budgets Page Specific Styles */
+.budgets-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Spacing between elements */
+  padding: 1rem; /* Overall padding for the page */
+  max-width: 900px; /* Max width for content */
+  margin: 0 auto; /* Center the content */
+}
+
+.budgets-page-container .dashboard-title {
+  margin-bottom: 0.5rem; /* Reduced bottom margin for title */
+  padding-left: 0; /* No extra padding if page is centered */
+}
+
+.budgets-intro-text {
+  color: var(--text-color-secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.create-budget-button-container {
+  display: flex;
+  justify-content: center; /* Center the button */
+  margin-bottom: 2rem;
+}
+
+.budget-list-placeholder {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-color-tertiary);
+  background-color: var(--background-color); /* Lighter than card, or use white */
+  border-radius: var(--border-radius-large);
+  border: 2px dashed var(--border-color);
+  box-shadow: none; /* No shadow for a placeholder, or a very subtle inset one */
+  font-size: 1.2rem;
+}
+
+/* Style for the disabled button to make it look more like a call to action */
+.budgets-page-container .expense-form-button[disabled] {
+  background-color: var(--primary-light-color);
+  color: var(--primary-color);
+  cursor: not-allowed;
+  border: 1px dashed var(--primary-color);
+  padding: 0.8rem 1.5rem;
+}
+
+/* Categories Page Specific Styles */
+.categories-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 700px; /* Max width for content */
+  margin: 0 auto; /* Center the content */
+}
+
+.categories-page-container .dashboard-title {
+  margin-bottom: 0.5rem;
+}
+
+.categories-intro-text {
+  color: var(--text-color-secondary);
+  margin-bottom: 1.5rem;
+  text-align: left; /* Align with the form */
+  font-size: 1.1rem;
+}
+
+.category-add-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-subtle);
+}
+
+.category-add-form .auth-input {
+  flex-grow: 1;
+  margin-bottom: 0; /* Remove margin if inside flex */
+}
+
+.category-add-form .expense-form-button {
+  margin-top: 0; /* Remove margin if inside flex */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.category-list-section {
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-subtle);
+}
+
+.category-list-section .section-title-like {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-color-light);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.category-list-item:last-child {
+  border-bottom: none;
+}
+
+.category-list-item:hover {
+  background-color: var(--background-color); /* Subtle hover effect */
+}
+
+.category-item-view,
+.category-item-edit-view {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.category-item-name {
+  flex-grow: 1;
+  color: var(--text-color-primary);
+  font-weight: 500;
+}
+
+.category-item-actions .edit-button,
+.category-item-actions .delete-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.category-item-edit-view .auth-input {
+  flex-grow: 1;
+  margin-bottom: 0;
+  padding: 0.6rem 0.9rem; /* Adjust padding for inline edit */
+}
+
+.category-item-edit-view .save-button,
+.category-item-edit-view .cancel-button {
+  padding: 0.6rem 1rem; /* Consistent padding for edit actions */
+  font-size: 0.9rem;
+}
+
+.category-item-edit-view .save-button {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+.category-item-edit-view .save-button:hover {
+    background-color: var(--success-dark-color);
+}
+
+.categories-page-container .loading-message,
+.categories-page-container .empty-list-message {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-color-secondary);
+  font-size: 1.1rem;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius-medium);
+  margin-top: 1rem;
+}
+
+/* Settings Page Specific Styles */
+.settings-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Spacing between sections */
+  padding: 1rem;
+  max-width: 800px; /* Max width for content */
+  margin: 0 auto; /* Center the content */
+}
+
+.settings-page-container .dashboard-title {
+  margin-bottom: 0.5rem;
+}
+
+.settings-intro-text {
+  color: var(--text-color-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.settings-section {
+  background-color: var(--white-color);
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-subtle);
+  margin-bottom: 1.5rem; /* Space between distinct settings cards */
+}
+
+.settings-section .section-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items nicely */
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.75rem 0; /* Add some padding for each setting item */
+  border-bottom: 1px solid var(--border-color-light); /* Separator for items */
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-item span {
+  color: var(--text-color-primary);
+  font-weight: 500;
+}
+
+.settings-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.settings-button:hover {
+  background-color: var(--secondary-dark-color);
+}
+
+.settings-page-container .delete-button[disabled] {
+  background-color: var(--gray-light-color);
+  color: var(--text-color-disabled);
+  border: 1px solid var(--border-color);
+  cursor: not-allowed;
+}
+
+.settings-section hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0; /* More pronounced separator between logical groups if not using cards */
+}
